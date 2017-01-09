@@ -1,0 +1,8 @@
+#!/bin/bash
+
+make
+if [ "$1" = "-c" ]; 
+then
+	make clean
+fi
+
