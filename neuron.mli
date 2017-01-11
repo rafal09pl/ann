@@ -1,7 +1,7 @@
 type neuron;;
 
 val dim : neuron -> int;;
-(*wymiar neuronu*)
+(*Neuron dimension - size of in vector*)
 val weights : neuron -> float list;;
 (*lista wag*)
 val fi : neuron -> float -> float;;
