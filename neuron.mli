@@ -1,13 +1,17 @@
 type neuron;;
 
 val dim : neuron -> int;;
-(*Neuron dimension - size of in vector*)
+(* dim neuron
+ * returns neuron's in vector size *)
 val weights : neuron -> float list;;
-(*Weights list*)
+(* weights neuron 
+ * returns weigts list of given neuron *)
 val fi : neuron -> float -> float;;
-(*Activation function*)
+(* fi neuron 
+ * returns activation function of given neuron*)
 val calculate : neuron -> float list -> float;;
-(*Calculation of neuron's result for data list*)
+(* calculate neuron data_list
+ * returns calculation result of given neuron for data_list *)
 val teach : neuron -> float -> float list -> float -> float -> neuron*float list;;
 (* Neuron's teaching:
  * teach neuron expexted_result data_list teach_const back_prop_const
