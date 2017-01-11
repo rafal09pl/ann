@@ -6,7 +6,7 @@ let dot v1 v2 =
 let scale k v = 
    map (( *.) k) v;;
 
-let suma v1 v2 = 
+let sum v1 v2 = 
    map2 (+.) v1 v2;;
 
 let vec_zero n =
