@@ -4,19 +4,28 @@ type layer;;
 exception Incompatible_Neurons_List;;
 
 val in_size : layer -> int;;
-(* rozmiar wejscia *)
+(* in_size layer 
+ * returns size of layer's in vector  *)
 val out_size : layer -> int;;
-(* rozmiar wyjscia *)
+(* out_size layer
+ * returns size of layer's out vector  *)
 val neurons : layer -> neuron list;;
-(* lista neuronow *)
+(* neurons layer 
+ * returns list of neurons which layer is build with   *)
 val l_create : (neuron list)->layer;;
-(* tworzy warstwe z danej listy neuronow*)
+(* l_create neurons 
+ * returns layer build with given neurons list   *)
 val l_random : int->int->(float->float)->layer;;
-(* tworzy losowa warstwe o danym rozmiarze wejscia, wyjscia 
- * i funkcji aktywacji*)
+(* l_random in_size out_size fi 
+ * returns random layer with given in and out size and 
+ * actiovation function fi    *)
 val l_calculate : layer->(float list)->float list;;
-(* oblicza wektor wyjsc dla daengo wektora wejscia*)
+(* Calculation for whole layer
+ * l_calculate layer data_list
+ * returns list of results for all neurons in layer*)
 val l_teach : layer -> float list -> float list -> float -> float -> layer * float list;;
-(* dla danych: warstwy, wektora oczekiwanego, wektora wejscia, 
- * stalej uczenia, daje pare: poprawiona warstwa, srednie oczeiwane dane*)
+(* Teaching whole layer 
+ * l_teach layer expected_vector in_vector teaching_const back_prop_const 
+ * returns pair
+ * ( corrected_layer, avarage_expected_data )   *)
 
