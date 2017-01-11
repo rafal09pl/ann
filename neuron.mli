@@ -5,14 +5,18 @@ val dim : neuron -> int;;
 val weights : neuron -> float list;;
 (*Weights list*)
 val fi : neuron -> float -> float;;
-(*funkcja aktywaci*)
+(*Activation function*)
 val calculate : neuron -> float list -> float;;
-(*obliczenie wyniku neuronu dla danej listy danych*)
+(*Calculation of neuron's result for data list*)
 val teach : neuron -> float -> float list -> float -> float -> neuron*float list;;
-(* uczenie neuronu dla oczekiwanego wyniku, danych, stalej uczenia i 
- * stalej propagacji wstecznej zwraca 
- * pare (poprawiony neuron, oczekiwane dane) *)
+(* Neuron's teaching:
+ * teach neuron expexted_result data_list teach_const back_prop_const
+ * returns pair (corrected_neuron, expected_data)  *)
 val create : (float->float)->float list->neuron;;
-(* tworzy neuron z dana funkcja aktywacji i wektorem wag*)
+(* Creates neuron
+ * create activaton_function weights_list 
+ * returns neuron with given arguments     *)
 val random : int->(float->float)->neuron;;
-(* tworzy losowy neuron o podanym rozmiarze wejscia*)
+(* Creates random neuron
+ * random dim activation_function
+ * returns random neuron with given in size    *)
