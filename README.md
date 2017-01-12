@@ -1,2 +1,2 @@
-# ann
-# Artificial neural network 
+# Artificial neural network
+Author: Rafał Banaś
