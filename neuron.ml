@@ -32,4 +32,4 @@ let teach n expected data alfa beta =
    and d_gradient =
       scale ( (y-.expected)*. (Math.derivative n.fi (dot n.weights data) ) ) n.weights
    in 
-   ((create n.fi (suma n.weights (scale (-.alfa) w_gradient))), (suma data (scale (-.beta) d_gradient)));;
+   ((create n.fi (sum n.weights (scale (-.alfa) w_gradient))), (sum data (scale (-.beta) d_gradient)));;

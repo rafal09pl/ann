@@ -35,7 +35,7 @@ vector.cmo: vector.cmi vector.ml
 	ocamlc -c vector.ml
 
 vector.cmi: vector.mli
-	ocamlc -c vector.mli
+	ocamlc -c vector.mli -o vector.cmi
 
 clean:
 	rm *.cmi *.cmo

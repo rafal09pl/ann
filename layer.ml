@@ -41,6 +41,6 @@ let l_teach l data expected alfa beta =
       fold_left2 (fun acc neu exp ->
          (teach neu exp data alfa beta)::acc) [] l.neurons expected in 
    let avg_exp_data =
-      scale (1./.(float_of_int l.out_size)) (fold_left suma (vec_zero l.out_size) (snd (split res_list)))
+      scale (1./.(float_of_int l.out_size)) (fold_left sum (vec_zero l.out_size) (snd (split res_list)))
          in (l_create (fst (split res_list)), avg_exp_data);;
 
