@@ -11,7 +11,7 @@ val out_size : layer -> int;;
  * returns size of layer's out vector  *)
 val neurons : layer -> neuron list;;
 (* neurons layer 
- * returns list of neurons which layer is build with   *)
+ * returns list of neurons which layer is built with   *)
 val l_create : (neuron list)->layer;;
 (* l_create neurons 
  * returns layer build with given neurons list   *)
