@@ -1,2 +1,3 @@
 # Artificial neural network
-Author: Rafał Banaś
+*Author:* Rafał Banaś
+
