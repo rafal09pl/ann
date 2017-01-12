@@ -12,6 +12,13 @@ let ann_in_size net = net.in_size;;
 
 let ann_out_size net = net.out_size;;
 
+let ann_compatible net = 
+   let (r, _) = fold_left (fun (acc, ins) lay -> 
+      (acc && (l_compatible lay) && (ins = (in_size lay) ), (out_size lay) ) )
+      (true, net.in_size) net.layers 
+   in r
+
+
 let ann_calculate net data =
    fold_left (fun d l -> l_calculate l d) data net.layers;;
 

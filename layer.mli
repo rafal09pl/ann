@@ -29,3 +29,8 @@ val l_teach : layer -> float list -> float list -> float -> float -> layer * flo
  * returns pair
  * ( corrected_layer, avarage_expected_data )   *)
 
+val l_compatible : layer -> bool;;
+(* Checks if neuron list is compatible,
+ * which means, all neurons have the same in size  *)
+
+

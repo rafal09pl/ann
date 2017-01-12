@@ -3,9 +3,9 @@ open List;;
 open Vector;;
 type layer =
       { in_size : int;
-           out_size : int;
-                neurons : neuron list;
-                   };;
+        out_size : int;
+        neurons : neuron list;
+      };;
 
 exception Incompatible_Neurons_List;;
 
@@ -15,10 +15,17 @@ let out_size l = l.out_size;;
 
 let neurons l = l.neurons;;
 
+
 let in_size_n_list nlist =
    fold_left (fun a h ->
       if a=(dim h) then a
       else raise Incompatible_Neurons_List) (dim (hd nlist)) nlist;;
+
+let l_compatible lay =
+   let (r, _) = fold_left (fun (acc, d) h -> (acc && (dim h) = d, dim h) ) 
+   (true, lay.in_size) lay.neurons 
+   in r;;
+
 
 let l_create nlist =
    { in_size= in_size_n_list nlist;
@@ -32,7 +39,7 @@ let l_random ins outs afi =
       else acc
    in l_create (aux [] outs);;
 
-let l_calculate l data =
+l_calculate l data =
    fold_left (fun acc h ->
       (calculate h data)::acc) [] l.neurons;;
 
