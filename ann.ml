@@ -22,7 +22,7 @@ let ann_compatible net =
 let ann_calculate net data =
    fold_left (fun d l -> l_calculate l d) data net.layers;;
 
-let calculation_list net data =        (*Lista wynikow dla warstw*)
+let calculation_list net data =       
    tl ( fold_left (fun acc l -> (l_calculate l (hd acc) )::acc) [data] net.layers );;
 
 
