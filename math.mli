@@ -1,8 +1,10 @@
 val normalRandom : float->float->float;;
-(* zwraca liczbe losowa o rozkladie normalnym dla danej sigmy i
- * warosci oczekiwanej *)
+(* normalRandom sigma mu 
+ * returns random variable with normal distribution, with
+ * variation sigma^2 and mean mu *) 
 
 val derivative : (float->float) -> (float->float);;
-(*pochodna funkcji*)
+(* derivative f
+ * returns derivative function of f  *)
 
 

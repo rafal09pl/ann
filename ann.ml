@@ -44,7 +44,8 @@ let ann_standard_random ins outs power afi =
 
 let ann_teach net data expected alfa beta =
    let res_list = calculation_list net data in
-      let (l_list, _, _) = fold_right
+      let (l_list, _, _) = 
+         fold_right
          (fun lay (c_lays, r_list, expect) ->
             let teach_res = l_teach lay (hd r_list) expect alfa beta in
                ( ( (fst teach_res)::c_lays ), (tl r_list), (snd teach_res) ) )

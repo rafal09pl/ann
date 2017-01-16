@@ -27,9 +27,11 @@ let random in_size afi =
 
 let teach n expected data alfa beta =
    let y = calculate n data in 
+   let derivative = (Math.derivative n.fi (dot n.weights data) ) in 
+   let factor = ( (y-.expected)*. derivative ) in
    let w_gradient = 
-      scale ( (y-.expected)*. (Math.derivative n.fi (dot n.weights data) ) ) data
+      scale factor data
    and d_gradient =
-      scale ( (y-.expected)*. (Math.derivative n.fi (dot n.weights data) ) ) n.weights
+      scale factor n.weights
    in 
    ((create n.fi (sum n.weights (scale (-.alfa) w_gradient))), (sum data (scale (-.beta) d_gradient)));;

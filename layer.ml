@@ -39,15 +39,17 @@ let l_random ins outs afi =
       else acc
    in l_create (aux [] outs);;
 
-l_calculate l data =
+let l_calculate l data =
    fold_left (fun acc h ->
       (calculate h data)::acc) [] l.neurons;;
 
 let l_teach l data expected alfa beta =
-   let res_list =
+   let result_pairs_list =
       fold_left2 (fun acc neu exp ->
          (teach neu exp data alfa beta)::acc) [] l.neurons expected in 
+   let (neurons_res_list, exp_data_list) = split result_pairs_list in
    let avg_exp_data =
-      scale (1./.(float_of_int l.out_size)) (fold_left sum (vec_zero l.out_size) (snd (split res_list)))
-         in (l_create (fst (split res_list)), avg_exp_data);;
+      let one_of_n = ( 1. /. (float_of_int l.out_size) ) in
+         scale one_of_n  ( fold_left sum (vec_zero l.in_size) exp_data_list )
+   in (l_create neurons_res_list, avg_exp_data);;
 

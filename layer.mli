@@ -25,7 +25,7 @@ val l_calculate : layer->(float list)->float list;;
  * returns list of results for all neurons in layer*)
 val l_teach : layer -> float list -> float list -> float -> float -> layer * float list;;
 (* Teaching whole layer 
- * l_teach layer expected_vector in_vector teaching_const back_prop_const 
+ * l_teach layer data expected_result teaching_const back_prop_const 
  * returns pair
  * ( corrected_layer, avarage_expected_data )   *)
 
